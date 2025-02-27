@@ -1,17 +1,24 @@
 /* General Styles */
+:root {
+    --primary-color: #ff5733;
+    --background-color: #ddd;
+    --text-color: #333;
+    --nav-bg: #333;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    background-color: #f9f9f9;
+    background-color: var(--background-color);
 }
 
 /* Navigation Bar */
 header {
     position: fixed;
     width: 100%;
-    background: #333;
+    background: var(--nav-bg);
     padding: 15px 0;
     text-align: center;
     z-index: 1000;
@@ -43,10 +50,11 @@ nav {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
 
-.nav-links a:hover {
-    color: #ff5733;
+.nav-links a:hover, .nav-links a:focus-visible {
+    color: var(--primary-color);
 }
 
 /* Mobile Navigation */
@@ -72,28 +80,28 @@ nav {
         flex-direction: column;
         position: absolute;
         top: 50px;
-        left: -110%;
+        left: 0;
         width: 100%;
-        height: auto;
-        transition: left 0.5s ease-in-out;
-        background: #333;
-        opacity: 0.8;
+        background: var(--nav-bg);
+        opacity: 1;
         text-align: center;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in-out;
     }
 
     .nav-links.active {
-        left: 0;
+        transform: translateX(0);
     }
 
     .nav-links li {
         display: block;
-        margin: 10px 0;
+        margin: 15px 0;
     }
 }
 
 /* Section Styles */
 section {
-    padding: 100px 20px;
+    padding: 5rem 1rem;
     text-align: center;
 }
 
@@ -104,7 +112,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ddd;
+    background-color: var(--background-color);
 }
 
 .home-content h1 {
@@ -112,7 +120,13 @@ section {
 }
 
 .home-content span {
-    color: #ff5733;
+    color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .home-content h1 {
+        font-size: 32px;
+    }
 }
 
 /* About Section */
@@ -130,17 +144,32 @@ section {
 }
 
 #abt {
-    height: 25rem;
-    width: 25rem;
+    height: auto;
+    width: 100%;
+    max-width: 25rem;
 }
 
 #about {
-    background-color: #ddd;
+    background-color: var(--background-color);
 }
 
+@media (max-width: 768px) {
+    .abt-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .abt-p {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Button Styles */
 .but {
     display: inline-block;
-    background: #ff5733;
+    background: var(--primary-color);
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -149,16 +178,20 @@ section {
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.but:hover {
+.but:hover, .but:focus-visible {
     background: white;
-    color: #ff5733;
+    color: var(--primary-color);
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .but {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
 
 /* Services Section */
-#services {
-    height: auto;
-}
-
 .services-container {
     display: flex;
     justify-content: center;
@@ -186,34 +219,20 @@ section {
     transform: scale(1.1);
 }
 
-/* Portfolio Section */
-.portfolio-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.portfolio-item {
-    background: #ddd;
-    padding: 40px;
-    border-radius: 10px;
-    width: 300px;
-}
-
-.pdt-img {
-    width: 200px;
-    border-radius: 5px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.pdt-img:hover {
-    transform: scale(1.1);
+    .service {
+        width: 90%;
+    }
 }
 
 /* Contact Section */
 #contact {
-    background: #333;
+    background: var(--nav-bg);
     color: white;
     height: 20vh;
     padding: 20px;
@@ -221,7 +240,7 @@ section {
 }
 
 .social-links a {
-    color: #ff5733;
+    color: var(--primary-color);
     margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
