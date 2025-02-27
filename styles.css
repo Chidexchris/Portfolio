@@ -66,6 +66,15 @@ nav {
     border: none;
     color: white;
 }
+.pdt-img {
+    width: 200px;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.pdt-img:hover {
+    transform: scale(1.1);
+}
 
 @media (max-width: 900px) {
     .btn {
