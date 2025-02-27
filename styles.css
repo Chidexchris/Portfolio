@@ -75,6 +75,8 @@ nav {
     padding: 40px;
     border-radius: 10px;
     width: 300px;
+    background-color: var(--background-color);
+
 }
 .pdt-img {
     width: 200px;
