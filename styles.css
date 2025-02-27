@@ -66,6 +66,19 @@ nav {
     border: none;
     color: white;
 }
+.portfolio-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.portfolio-item {
+    background: #ddd;
+    padding: 40px;
+    border-radius: 10px;
+    width: 300px;
+}
 .pdt-img {
     width: 200px;
     border-radius: 5px;
